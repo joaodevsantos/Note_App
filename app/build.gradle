@@ -43,7 +43,6 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    implementation 'com.google.android.material:material:1.4.0'
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Room
@@ -52,7 +51,9 @@ dependencies {
 
     // Compose
     implementation "androidx.compose.ui:ui:$compose_ui_version"
-    // Material design icons
+    // Integration with Material
+    implementation "androidx.compose.material:material:$compose_material_version"
+    // Integration with Material design icons
     implementation "androidx.compose.material:material-icons-extended:$compose_icons_extended_version"
     // Integration with ViewModels
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$compose_viewmodel_version"
@@ -60,6 +61,9 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:$compose_navigation"
     // Integration with Hil
     implementation "androidx.hilt:hilt-navigation-compose:$compose_hilt"
+
+    // Material
+    implementation "com.google.android.material:material:$material_version"
 
     // Tests
     testImplementation "junit:junit:$junit_version"
