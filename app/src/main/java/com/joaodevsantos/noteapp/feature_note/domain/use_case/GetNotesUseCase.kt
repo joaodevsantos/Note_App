@@ -6,17 +6,17 @@ import com.joaodevsantos.noteapp.feature_note.domain.util.NoteOrder
 import com.joaodevsantos.noteapp.feature_note.domain.util.NoteOrder.Title
 import com.joaodevsantos.noteapp.feature_note.domain.util.NoteOrder.Date
 import com.joaodevsantos.noteapp.feature_note.domain.util.NoteOrder.Color
-import com.joaodevsantos.noteapp.feature_note.domain.util.OrderType
 import com.joaodevsantos.noteapp.feature_note.domain.util.OrderType.Ascending
 import com.joaodevsantos.noteapp.feature_note.domain.util.OrderType.Descending
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class GetNotesUseCase(
+class GetNotesUseCase @Inject constructor(
     private val notesRepository: NoteRepository
 ) {
     operator fun invoke(
-        noteOrder: NoteOrder = Date(OrderType.Descending)
+        noteOrder: NoteOrder = Date(Descending)
     ): Flow<List<Note>> {
         return notesRepository.getAllNotes().map { notesList ->
             when(noteOrder.orderType) {

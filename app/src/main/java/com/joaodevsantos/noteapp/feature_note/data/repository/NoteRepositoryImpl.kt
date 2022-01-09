@@ -4,8 +4,9 @@ import com.joaodevsantos.noteapp.feature_note.data.data_source.NoteDao
 import com.joaodevsantos.noteapp.feature_note.domain.model.Note
 import com.joaodevsantos.noteapp.feature_note.domain.repository.NoteRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class NoteRepositoryImpl(
+class NoteRepositoryImpl @Inject constructor(
     private val dao: NoteDao
 ): NoteRepository {
     override fun getAllNotes(): Flow<List<Note>> = dao.getAllNotes()
