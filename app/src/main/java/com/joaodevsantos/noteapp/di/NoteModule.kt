@@ -5,8 +5,9 @@ import androidx.room.Room
 import com.joaodevsantos.noteapp.feature_note.data.data_source.NoteDatabase
 import com.joaodevsantos.noteapp.feature_note.data.repository.NoteRepositoryImpl
 import com.joaodevsantos.noteapp.feature_note.domain.repository.NoteRepository
-import com.joaodevsantos.noteapp.feature_note.domain.use_case.DeleteNoteUseCase
-import com.joaodevsantos.noteapp.feature_note.domain.use_case.GetNotesUseCase
+import com.joaodevsantos.noteapp.feature_note.domain.use_case.AddNote
+import com.joaodevsantos.noteapp.feature_note.domain.use_case.DeleteNote
+import com.joaodevsantos.noteapp.feature_note.domain.use_case.GetNotes
 import com.joaodevsantos.noteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
 import dagger.Provides
@@ -33,7 +34,8 @@ class NoteModule {
     @Provides
     @Singleton
     fun providesNoteUseCase(
-        getNotesUseCase: GetNotesUseCase,
-        deleteNoteUseCase: DeleteNoteUseCase
-    ): NoteUseCases = NoteUseCases(getNotesUseCase, deleteNoteUseCase)
+        getNotes: GetNotes,
+        deleteNote: DeleteNote,
+        addNote: AddNote
+    ): NoteUseCases = NoteUseCases(getNotes, deleteNote, addNote)
 }
